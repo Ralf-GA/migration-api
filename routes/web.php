@@ -16,3 +16,8 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'migrate'], function () use ($router) {
+    $router->post('/red', 'RedMigrateController@migrate');
+    $router->post('/ors', 'OrsMigrateController@migrate');
+});
