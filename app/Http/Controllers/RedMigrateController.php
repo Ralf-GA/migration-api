@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
+use Laravel\Lumen\Routing\Controller;
 
-class RedMigrateController
+class RedMigrateController extends Controller
 {
     public function migrate()
     {
@@ -42,7 +43,7 @@ class RedMigrateController
         foreach ($requestData as $data) {
             $response = Http::withHeaders([
                 'Authorization' => 'Bearer ' . env('BEARER_TOKEN')
-            ])->post(env('dummyApi'), $data);
+            ])->post('dummyApi.com', $data);
             // ])->post(env('ADD_GAME_API'), $data);
 
             Log::info(json_encode([

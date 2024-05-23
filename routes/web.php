@@ -1,5 +1,6 @@
 <?php
 
+
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -18,6 +19,6 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'migrate'], function () use ($router) {
-    $router->post('/red', 'RedMigrateController@migrate');
-    $router->post('/ors', 'OrsMigrateController@migrate');
+    $router->post('/red', ['uses' => 'RedMigrateController@migrate']);
+    $router->post('/ors', ['uses' => 'OrsMigrateController@migrate']);
 });
