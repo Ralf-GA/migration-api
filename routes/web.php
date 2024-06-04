@@ -21,4 +21,5 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'migrate'], function () use ($router) {
     $router->post('/red', ['uses' => 'RedMigrateController@migrate']);
     $router->post('/ors', ['uses' => 'OrsMigrateController@migrate']);
+    $router->post('/ors-prod', ['uses' => 'OrsProdMigrate@migrate']);
 });

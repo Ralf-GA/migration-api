@@ -18,9 +18,13 @@ class OrsMigrateController extends Controller
         if ($response['rs_code'] !== 'S-100')
             dd($response);
 
+        // dd($response);
         $pos = 1;
 
         foreach ($response['records'] as $game) {
+
+            // if ($game['game_type'] !== 'Slot Game')
+            //     $request[] = $game['game_name'];
 
             if ($game['game_type'] !== 'Slot Game' || $this->gameRTP($game['game_id']) == 'not found') continue;
 
@@ -37,23 +41,26 @@ class OrsMigrateController extends Controller
                 'imageUrl' => '-',
                 'imageAlt' => $game['game_name'],
             ];
+            // $gameList[] = $game['game_name'];
 
             $pos++;
         }
 
-        // dd($requestData);
+        // dd($request);
+        // dd($gameList);
+        dd($requestData);
 
-        foreach ($requestData as $data) {
-            $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . env('BEARER_TOKEN')
-                // ])->post(env('ADD_GAME_API'), $data);
-            ])->post('dummyApi.com', $data);
+        // foreach ($requestData as $data) {
+        //     $response = Http::withHeaders([
+        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN')
+        //         // ])->post(env('ADD_GAME_API'), $data);
+        //     ])->post('dummyApi.com', $data);
 
-            Log::info(json_encode([
-                'request' => $data,
-                'response' => $response->body()
-            ]));
-        }
+        //     Log::info(json_encode([
+        //         'request' => $data,
+        //         'response' => $response->body()
+        //     ]));
+        // }
     }
 
     private function gameRTP($gameID)

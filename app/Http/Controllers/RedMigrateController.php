@@ -40,17 +40,19 @@ class RedMigrateController extends Controller
             $pos++;
         }
 
-        foreach ($requestData as $data) {
-            $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . env('BEARER_TOKEN')
-            ])->post('dummyApi.com', $data);
-            // ])->post(env('ADD_GAME_API'), $data);
+        dd($requestData);
 
-            Log::info(json_encode([
-                'request' => $data,
-                'response' => $response->body()
-            ]));
-        }
+        // foreach ($requestData as $data) {
+        //     $response = Http::withHeaders([
+        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN')
+        //     ])->post('dummyApi.com', $data);
+        //     // ])->post(env('ADD_GAME_API'), $data);
+
+        //     Log::info(json_encode([
+        //         'request' => $data,
+        //         'response' => $response->body()
+        //     ]));
+        // }
     }
 
     private function gameRTP($gameID)
