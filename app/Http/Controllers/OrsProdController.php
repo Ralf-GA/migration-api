@@ -20,15 +20,8 @@ class OrsProdController extends Controller
 
         $pos = 1;
 
-        // dd($response);
-
         foreach ($response['records'] as $game) {
-
-            if ($this->gameRTP($game['game_id']) == 'not found')
-                // $request[] = $game['game_name'];
-                continue;
-
-            // Lucky Samurai, Pinslot, FruitSlicer
+            if ($this->gameRTP($game['game_id']) == 'not found') continue;
 
             $type = in_array($game['game_id'], [123, 124, 135]) ? 'arcade' : 'slot';
 
@@ -47,7 +40,6 @@ class OrsProdController extends Controller
             $pos++;
         }
 
-        // dd($request);
         dd($requestData);
 
         // foreach ($requestData as $data) {

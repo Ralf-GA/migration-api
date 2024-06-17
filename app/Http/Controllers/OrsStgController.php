@@ -18,14 +18,9 @@ class OrsStgController extends Controller
         if ($response['rs_code'] !== 'S-100')
             dd($response);
 
-        // dd($response);
         $pos = 1;
 
         foreach ($response['records'] as $game) {
-
-            // if ($game['game_type'] !== 'Slot Game')
-            //     $request[] = $game['game_name'];
-
             if ($game['game_type'] !== 'Slot Game' || $this->gameRTP($game['game_id']) == 'not found') continue;
 
             $type = in_array($game['game_id'], [158, 132, 131]) ? 'arcade' : 'slot';
@@ -41,13 +36,10 @@ class OrsStgController extends Controller
                 'imageUrl' => '-',
                 'imageAlt' => $game['game_name'],
             ];
-            // $gameList[] = $game['game_name'];
 
             $pos++;
         }
 
-        // dd($request);
-        // dd($gameList);
         dd($requestData);
 
         // foreach ($requestData as $data) {
