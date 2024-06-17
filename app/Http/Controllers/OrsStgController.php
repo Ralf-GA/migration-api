@@ -6,14 +6,14 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Laravel\Lumen\Routing\Controller;
 
-class OrsMigrateController extends Controller
+class OrsStgController extends Controller
 {
     public function migrate()
     {
         $response = Http::withHeaders([
-            'key' => env('ORS_KEY'),
-            'operator-name' => env('ORS_OPERATOR_NAME'),
-        ])->get(env('ORS_API_URL'))->json();
+            'key' => env('ORS_KEY_STG'),
+            'operator-name' => env('ORS_OPERATOR_NAME_STG'),
+        ])->get(env('ORS_API_URL_STG'))->json();
 
         if ($response['rs_code'] !== 'S-100')
             dd($response);
@@ -52,8 +52,8 @@ class OrsMigrateController extends Controller
 
         // foreach ($requestData as $data) {
         //     $response = Http::withHeaders([
-        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN')
-        //         // ])->post(env('ADD_GAME_API'), $data);
+        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN_STG')
+        //         // ])->post(env('ADD_GAME_API_STG'), $data);
         //     ])->post('dummyApi.com', $data);
 
         //     Log::info(json_encode([

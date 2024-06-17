@@ -20,6 +20,16 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'migrate'], function () use ($router) {
     $router->post('/red', ['uses' => 'RedMigrateController@migrate']);
-    $router->post('/ors', ['uses' => 'OrsMigrateController@migrate']);
-    $router->post('/ors-prod', ['uses' => 'OrsProdMigrate@migrate']);
+
+    // ORS
+    $router->group(['prefix' => 'ORS'], function () use ($router) {
+        $router->post('/Staging',    ['uses' => 'OrsStgController@migrate']);
+        $router->post('/Production', ['uses' => 'OrsProdController@migrate']);
+    });
+
+    // SBO
+    $router->group(['prefix' => 'SBO'], function () use ($router) {
+        $router->post('/Staging',    ['uses' => 'SboStgController@migrate']);
+        $router->post('/Production', ['uses' => 'SboProdController@migrate']);
+    });
 });

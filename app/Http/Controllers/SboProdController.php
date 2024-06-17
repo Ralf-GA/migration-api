@@ -6,14 +6,14 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Laravel\Lumen\Routing\Controller;
 
-class OrsProdMigrate extends Controller
+class SboProdController extends Controller
 {
     public function migrate()
     {
         $response = Http::withHeaders([
-            'key' => env('ORS_KEY_PRODUCTION'),
-            'operator-name' => env('ORS_OPERATOR_NAME_PRODUCTION'),
-        ])->get(env('ORS_API_URL_PRODUCTION'))->json();
+            'key' => env('ORS_KEY_PROD'),
+            'operator-name' => env('ORS_OPERATOR_NAME_PROD'),
+        ])->get(env('ORS_API_URL_PROD'))->json();
 
         if ($response['rs_code'] !== 'S-100')
             dd($response);
@@ -52,8 +52,8 @@ class OrsProdMigrate extends Controller
 
         // foreach ($requestData as $data) {
         //     $response = Http::withHeaders([
-        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN_PRODUCTION')
-        //         // ])->post(env('ADD_GAME_API_PRODUCTION'), $data);
+        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN_PROD')
+        //         // ])->post(env('ADD_GAME_API_PROD'), $data);
         //     ])->post('dummyApi.com', $data);
 
         //     Log::info(json_encode([

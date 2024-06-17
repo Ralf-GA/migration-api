@@ -41,7 +41,7 @@ class RedMigrationTest extends TestCase
 
         Http::assertSent(function ($request) {
             return $request->url() == 'dummyApi.com' &&
-                $request->hasHeader('Authorization', 'Bearer ' . env('BEARER_TOKEN')) &&
+                $request->hasHeader('Authorization', 'Bearer ' . env('BEARER_TOKEN_STG')) &&
                 $request->data()['providerCode'] == 'RED';
         });
     }

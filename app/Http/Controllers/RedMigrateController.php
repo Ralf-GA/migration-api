@@ -44,9 +44,9 @@ class RedMigrateController extends Controller
 
         // foreach ($requestData as $data) {
         //     $response = Http::withHeaders([
-        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN')
+        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN_STG')
         //     ])->post('dummyApi.com', $data);
-        //     // ])->post(env('ADD_GAME_API'), $data);
+        //     // ])->post(env('ADD_GAME_API_STG'), $data);
 
         //     Log::info(json_encode([
         //         'request' => $data,
