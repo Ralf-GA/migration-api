@@ -10,10 +10,19 @@ class SboStgController extends Controller
 {
     public function migrate()
     {
+        // get Game List URL document 8.1
+        // /web-root/restricted/information/get-game-list.aspx
         $response = Http::withHeaders([
-            'key' => env('ORS_KEY_STG'),
-            'operator-name' => env('ORS_OPERATOR_NAME_STG'),
-        ])->get(env('ORS_API_URL_STG'))->json();
+            'CompanyKey' => env(''),
+            'ServerId' => env(''),
+            'GpId' => env(''), //! no id yet need confirmation
+            'IsGetAll' => true,
+        ])->get(env(''))->json();
+
+        // $response = Http::withHeaders([
+        //     'key' => env(''),
+        //     'operator-name' => env(''),
+        // ])->get(env(''))->json();
 
         if ($response['rs_code'] !== 'S-100')
             dd($response);
@@ -21,33 +30,41 @@ class SboStgController extends Controller
         // dd($response);
         $pos = 1;
 
-        foreach ($response['records'] as $game) {
+        foreach ($response['seamlessGameProviderGames'] as $game) {
+            // if ($game['newGameType'] !== 'Sportsbook')
+            //     $request[] = $game['gameName'];
 
-            // if ($game['game_type'] !== 'Slot Game')
-            //     $request[] = $game['game_name'];
+            if ($game['newGameType'] !== 'Sportsbook' || $this->gameRTP($game['gameID']) == 'not found') {
+                // $request[] = [
+                //     'game_name' => $game['gameName'],
+                //     'game_rtp' => $this->gameRTP($game['gameID'])
+                // ];
+                continue;
+            }
 
-            if ($game['game_type'] !== 'Slot Game' || $this->gameRTP($game['game_id']) == 'not found') continue;
+            $type = in_array($game['gameID'], [158, 132, 131]) ? 'arcade' : 'slot'; // TODO change game type
 
-            $type = in_array($game['game_id'], [158, 132, 131]) ? 'arcade' : 'slot';
+            // if (in_array($game['gameID'], [158, 132, 131]) == true) {
+            //     $games[] = $game['gameName'];
+            // }
 
             $requestData[] = [
-                'providerCode' => 'ORS',
-                'providerName' => 'OG SLOT',
-                'gameCode' => (string) $game['game_id'],
-                'gameName' => $game['game_name'],
+                'providerCode' => 'SBO',
+                'providerName' => 'SBO Sportsbook', //! get provider name
+                'gameCode' => (string) $game['gameID'],
+                'gameName' => $game['gameName'],
                 'position' => $pos,
                 'type' => $type,
-                'rtp' => $this->gameRTP($game['game_id']),
+                'rtp' => $this->gameRTP($game['gameID']),
                 'imageUrl' => '-',
-                'imageAlt' => $game['game_name'],
+                'imageAlt' => $game['gameName'],
             ];
-            // $gameList[] = $game['game_name'];
 
             $pos++;
         }
 
         // dd($request);
-        // dd($gameList);
+        // dd($games);
         dd($requestData);
 
         // foreach ($requestData as $data) {
@@ -65,6 +82,7 @@ class SboStgController extends Controller
 
     private function gameRTP($gameID)
     {
+        // TODO get rtp list
         $rtps = [];
 
         return $rtps[$gameID] ?? 'not found';
