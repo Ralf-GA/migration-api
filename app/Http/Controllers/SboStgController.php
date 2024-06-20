@@ -10,15 +10,6 @@ class SboStgController extends Controller
 {
     public function migrate()
     {
-        // $response = Http::withHeaders([
-        //     'ag-code' => 'MPO0114',
-        //     'ag-token' => '3BQ9KGFtnQtno4kz12bMP4UqhVqWlWtz'
-        // ])->post('https://uat.ps9games.com/gamelist', ['language' => 'en'])->json();
-
-        // if ($response['status'] != 1) {
-        //     dd($response);
-        // }
-
         $pos = 1;
 
         // foreach ($response['game_list'][213] as $game) {
@@ -49,7 +40,8 @@ class SboStgController extends Controller
         foreach ($requestData as $data) {
             $response = Http::withHeaders([
                 'Authorization' => 'Bearer 1|y3qi97hqjoxMTBI5OsYxn43OPyK3KHiYJIdnxo2V'
-            ])->post('12.0.129.164/api/games/add', $data);
+            ])->post(env('dummyAPI'), $data);
+            // ])->post(env('ADD_GAME_API_STG', $data);
 
             Log::info(json_encode([
                 'request' => $data,
