@@ -10,81 +10,84 @@ class SboStgController extends Controller
 {
     public function migrate()
     {
-        // get Game List URL document 8.1
-        // /web-root/restricted/information/get-game-list.aspx
-        $response = Http::withHeaders([
-            'CompanyKey' => env(''),
-            'ServerId' => env(''),
-            'GpId' => env(''), //! no id yet need confirmation
-            'IsGetAll' => true,
-        ])->get(env(''))->json();
-
         // $response = Http::withHeaders([
-        //     'key' => env(''),
-        //     'operator-name' => env(''),
-        // ])->get(env(''))->json();
+        //     'ag-code' => 'MPO0114',
+        //     'ag-token' => '3BQ9KGFtnQtno4kz12bMP4UqhVqWlWtz'
+        // ])->post('https://uat.ps9games.com/gamelist', ['language' => 'en'])->json();
 
-        if ($response['rs_code'] !== 'S-100')
-            dd($response);
+        // if ($response['status'] != 1) {
+        //     dd($response);
+        // }
 
-        // dd($response);
         $pos = 1;
 
-        foreach ($response['seamlessGameProviderGames'] as $game) {
-            // if ($game['newGameType'] !== 'Sportsbook')
-            //     $request[] = $game['gameName'];
+        // foreach ($response['game_list'][213] as $game) {
 
-            if ($game['newGameType'] !== 'Sportsbook' || $this->gameRTP($game['gameID']) == 'not found') {
-                // $request[] = [
-                //     'game_name' => $game['gameName'],
-                //     'game_rtp' => $this->gameRTP($game['gameID'])
-                // ];
-                continue;
-            }
+        // if ($game['is_enabled'] == 0) continue;
 
-            $type = in_array($game['gameID'], [158, 132, 131]) ? 'arcade' : 'slot'; // TODO change game type
+        $markets = $this->marketType();
 
-            // if (in_array($game['gameID'], [158, 132, 131]) == true) {
-            //     $games[] = $game['gameName'];
-            // }
-
+        foreach ($markets as $marketType) {
             $requestData[] = [
                 'providerCode' => 'SBO',
-                'providerName' => 'SBO Sportsbook', //! get provider name
-                'gameCode' => (string) $game['gameID'],
-                'gameName' => $game['gameName'],
+                'providerName' => 'SBO Sportsbook',
+                'gameCode' => $marketType,
+                'gameName' => $marketType,
                 'position' => $pos,
-                'type' => $type,
-                'rtp' => $this->gameRTP($game['gameID']),
+                'type' => $marketType,
+                'rtp' => 0,
                 'imageUrl' => '-',
-                'imageAlt' => $game['gameName'],
+                'imageAlt' => $marketType,
             ];
 
             $pos++;
         }
 
-        // dd($request);
-        // dd($games);
-        dd($requestData);
-
-        // foreach ($requestData as $data) {
-        //     $response = Http::withHeaders([
-        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN_STG')
-        //         // ])->post(env('ADD_GAME_API_STG'), $data);
-        //     ])->post('dummyApi.com', $data);
-
-        //     Log::info(json_encode([
-        //         'request' => $data,
-        //         'response' => $response->body()
-        //     ]));
+        // dd($requestData);
         // }
+
+        foreach ($requestData as $data) {
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer 1|y3qi97hqjoxMTBI5OsYxn43OPyK3KHiYJIdnxo2V'
+            ])->post('12.0.129.164/api/games/add', $data);
+
+            Log::info(json_encode([
+                'request' => $data,
+                'response' => $response->body()
+            ]));
+        }
     }
 
-    private function gameRTP($gameID)
+    private function marketType()
     {
-        // TODO get rtp list
-        $rtps = [];
-
-        return $rtps[$gameID] ?? 'not found';
+        return [
+            'ALL',
+            'Handicap',
+            'Odd/Even',
+            'Over/Under',
+            'Correct Score',
+            '1X2',
+            'Total Goal',
+            'First Half Hdp',
+            'First Half 1x2',
+            'First Half O/U',
+            'HT/FT',
+            'Money Line',
+            'First Half O/E',
+            'First Goal/Last Goal',
+            'First Half CS',
+            'Double Chance',
+            'Live Score',
+            'First Half Live Score',
+            'Outright',
+            'Mix Parlay',
+            'In Between',
+            'First Half 1X2 & O/U',
+            'D/C & First Half O/U',
+            '1X2 & O/U',
+            'D/C & O/U',
+            'First Half RCS',
+            'Reverse Correct Score',
+        ];
     }
 }
