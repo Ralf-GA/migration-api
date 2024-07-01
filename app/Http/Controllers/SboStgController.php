@@ -37,18 +37,18 @@ class SboStgController extends Controller
         dd($requestData);
         // }
 
-        foreach ($requestData as $data) {
-            dd($data);
-            $response = Http::withHeaders([
-                'Authorization' => 'Bearer 1|y3qi97hqjoxMTBI5OsYxn43OPyK3KHiYJIdnxo2V'
-            ])->post(env('dummyAPI'), $data);
-            // ])->post(env('ADD_GAME_API_STG', $data));
+        // foreach ($requestData as $data) {
+        //     dd($data);
+        //     $response = Http::withHeaders([
+        //         'Authorization' => 'Bearer 1|y3qi97hqjoxMTBI5OsYxn43OPyK3KHiYJIdnxo2V'
+        //     ])->post(env('dummyAPI'), $data);
+        //     // ])->post(env('ADD_GAME_API_STG', $data));
 
-            Log::info(json_encode([
-                'request' => $data,
-                'response' => $response->body()
-            ]));
-        }
+        //     Log::info(json_encode([
+        //         'request' => $data,
+        //         'response' => $response->body()
+        //     ]));
+        // }
     }
 
     private function marketType()
