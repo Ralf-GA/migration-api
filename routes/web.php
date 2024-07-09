@@ -19,6 +19,10 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'migrate'], function () use ($router) {
+    $router->group(['prefix' => 'test'], function () use ($router) {
+        $router->post('/GameList',    ['uses' => 'testController@testing']);
+    });
+
     $router->post('/red', ['uses' => 'RedMigrateController@migrate']);
 
     // ORS

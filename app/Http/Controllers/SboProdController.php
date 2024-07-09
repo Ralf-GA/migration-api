@@ -10,11 +10,8 @@ class SboProdController extends Controller
 {
     public function migrate()
     {
-        $pos = 1;
-
-        // foreach ($response['game_list'][213] as $game) {
-
-        // if ($game['is_enabled'] == 0) continue;
+        // $pos = 1;
+        $pos = 30;
 
         $markets = $this->marketType();
 
@@ -52,11 +49,10 @@ class SboProdController extends Controller
         dd($requestData);
 
         // foreach ($requestData as $data) {
-        //     // dd($data);
         //     $response = Http::withHeaders([
         //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN_PROD')
-        //         // ])->post(env('dummyAPI'), $data);
-        //     ])->post(env('ADD_GAME_API_PROD', $data));
+        //         ])->post(env('dummyAPI'), $data);
+        //     // ])->post(env('ADD_GAME_API_PROD'), $data);
 
         //     Log::info(json_encode([
         //         'request' => $data,
@@ -68,36 +64,47 @@ class SboProdController extends Controller
     private function marketType()
     {
         return [
-            'ALL',
-            'Handicap',
-            'Odd/Even',
-            'Over/Under',
-            'Correct Score',
-            '1X2',
-            'Total Goal',
-            'First Half Hdp',
-            'First Half 1x2',
-            'First Half O/U',
-            'HT/FT',
-            'Money Line',
-            'First Half O/E',
-            'First Goal/Last Goal',
-            'First Half CS',
-            'Double Chance',
-            'Live Score',
-            'First Half Live Score',
-            'Outright',
-            'Mix Parlay',
-            'In Between',
-            'First Half 1X2 & O/U',
-            'D/C & First Half O/U',
-            '1X2 & O/U',
-            'D/C & O/U',
-            'First Half RCS',
-            'Reverse Correct Score',
+            // 'ALL',
+            // 'Handicap',
+            // 'Odd/Even',
+            // 'Over/Under',
+            // 'Correct Score',
+            // '1X2',
+            // 'Total Goal',
+            // 'First Half Hdp',
+            // 'First Half 1x2',
+            // 'First Half O/U',
+            // 'HT/FT',
+            // 'Money Line',
+            // 'First Half O/E',
+            // 'First Goal/Last Goal',
+            // 'First Half CS',
+            // 'Double Chance',
+            // 'Live Score',
+            // 'First Half Live Score',
+            // 'Outright',
+            // 'Mix Parlay',
+            // 'In Between',
+            // 'First Half 1X2 & O/U',
+            // 'D/C & First Half O/U',
+            // '1X2 & O/U',
+            // 'D/C & O/U',
+            // 'First Half RCS',
+            // 'Reverse Correct Score',
 
-            'Mini Football Strike',
-            'Mini Mines'
+            // 'Mini Football Strike',
+            // 'Mini Mines'
+
+            'Asian 1X2',
+            'FH 1X2',
+            'FH Over/Under',
+            'FH Handicap',
+            'FirstHalfOneXTwo',
+            'FirstHalfAsianHandicap',
+            'CupWinner',
+            'AsianHandicap',
+            'FirstHalfOverUnder',
+            'NotSupport',
         ];
     }
 }
