@@ -21,6 +21,7 @@ class OrsProdController extends Controller
         $pos = 1;
 
         foreach ($response['records'] as $game) {
+
             if ($this->gameRTP($game['game_id']) == 'not found') continue;
 
             $type = in_array($game['game_id'], [123, 124, 135]) ? 'arcade' : 'slot';
