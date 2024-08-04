@@ -15,9 +15,8 @@ class RedMigrateController extends Controller
             'ag-token' => env('RED_AG_TOKEN')
         ])->post(env('RED_API_URL'), ['language' => 'en'])->json();
 
-        if ($response['status'] != 1) {
+        if ($response['status'] != 1)
             dd($response);
-        }
 
         $pos = 1;
 

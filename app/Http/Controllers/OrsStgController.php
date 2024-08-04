@@ -21,6 +21,7 @@ class OrsStgController extends Controller
         $pos = 1;
 
         foreach ($response['records'] as $game) {
+
             if ($game['game_type'] !== 'Slot Game' || $this->gameRTP($game['game_id']) == 'not found') continue;
 
             $type = in_array($game['game_id'], [158, 132, 131]) ? 'arcade' : 'slot';

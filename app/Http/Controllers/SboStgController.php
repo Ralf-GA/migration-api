@@ -12,10 +12,6 @@ class SboStgController extends Controller
     {
         $pos = 30;
 
-        // foreach ($response['game_list'][213] as $game) {
-
-        // if ($game['is_enabled'] == 0) continue;
-
         $markets = $this->marketType();
 
         foreach ($markets as $marketType) {
@@ -45,20 +41,19 @@ class SboStgController extends Controller
             $pos++;
         }
 
-        // dd($requestData);
+        dd($requestData);
+
+        // foreach ($requestData as $data) {
+        //     $response = Http::withHeaders([
+        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN_STG')
+        //         ])->post(env('dummyAPI'), $data);
+        //     // ])->post(env('ADD_GAME_API_STG'), $data);
+
+        //     Log::info(json_encode([
+        //         'request' => $data,
+        //         'response' => $response->body()
+        //     ]));
         // }
-
-        foreach ($requestData as $data) {
-            $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . env('BEARER_TOKEN_STG')
-                // ])->post(env('dummyAPI'), $data);
-            ])->post(env('ADD_GAME_API_STG'), $data);
-
-            Log::info(json_encode([
-                'request' => $data,
-                'response' => $response->body()
-            ]));
-        }
     }
 
     private function marketType()
