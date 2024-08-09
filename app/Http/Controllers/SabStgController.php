@@ -13,17 +13,17 @@ class SabStgController extends Controller
         $pos = 1;
 
         $requestData = [];
-        foreach ($this->betType() as $betType) {
+        foreach ($this->betType() as $betTypeName => $betTypeID) {
             $requestData[] = [
                 'providerCode' => 'SAB',
                 'providerName' => 'SAB Sportsbook',
-                'gameCode' => $betType,
-                'gameName' => $betType,
+                'gameCode' => $betTypeID,
+                'gameName' => $betTypeName,
                 'position' => $pos,
-                'type' => $betType,
+                'type' => $betTypeName,
                 'rtp' => '0',
                 'imageUrl' => '-',
-                'imageAlt' => $betType,
+                'imageAlt' => $betTypeName,
             ];
 
             $pos++;
@@ -451,7 +451,7 @@ class SabStgController extends Controller
             "Live Baccarat"  =>    1103,
             "Live Roulette"  =>    1104,
             "No Card Baccarat"  =>    1106,
-            // "Handicap"  =>    1201,
+            "Handicap"  =>    1201,
             "Over/Under 2.5 Goals"  =>    1203,
             "Correct Score"  =>    1204,
             "1X2"  =>    1205,
@@ -860,7 +860,7 @@ class SabStgController extends Controller
             "1H 1X2"  =>    2702,
             "Over/Under"  =>    2703,
             "1H Over/Under"  =>    2704,
-            // "Handicap"  =>    2705,
+            "Handicap"  =>    2705,
             "1H Handicap"  =>    2706,
             "Correct Score"  =>    2707,
             "Mix Parlay"  =>    2799,
@@ -868,7 +868,7 @@ class SabStgController extends Controller
             "1H Winner"  =>    2802,
             "Over/Under"  =>    2803,
             "1H Over/Under"  =>    2804,
-            // "Handicap"  =>    2805,
+            "Handicap"  =>    2805,
             "1H Handicap"  =>    2806,
             "Winning Margin 6 Way"  =>    2807,
             "1H Winning Margin 7 Way"  =>    2808,
@@ -1624,7 +1624,7 @@ class SabStgController extends Controller
             "1H 1X2"  =>    5303,
             "1H Over/Under"  =>    5304,
             "Fulltime Exact Result"  =>    5305,
-            // "Handicap"  =>    5306,
+            "Handicap"  =>    5306,
             "Over/Under"  =>    5307,
             "MaxGame"  =>    5401,
             "Dice War"  =>    5402,
