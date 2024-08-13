@@ -20,41 +20,37 @@ class Cq9StgController extends Controller
 
         $pos = 1;
 
+        $test = [];
+
         foreach ($response['data'] as $game) {
             if ($game['gametype'] != 'slot') continue;
 
-            if ($this->gameRTP($game['gamecode']) == 'not found') {
-                $test[] = [
-                    'gamecode' => (string) $game['gamecode'],
-                    'gamename' => $game['gamename'],
-                    'type' => $game['gametype'],
-                ];
-            }
+            $gameName = $game['gamename'];
 
-            // if ($game['gametype'] != 'slot')
-            //     $test[] = [
-            //         'gametype' => $game['gametype'],
-            //         'gameName' => $game['gamename'],
-            //         'gameCode' => (string) $game['gamecode'],
-            //     ];
+            foreach ($game['nameset'] as $name) {
+                if ($name['lang'] === 'en') {
+                    $gameName = $name['name'];
+                    break;
+                }
+            }
 
             $requestData[] = [
                 'providerCode' => 'CQ9',
                 'providerName' => 'CQ9',
                 'gameCode' => (string) $game['gamecode'],
-                'gameName' => $game['gamename'],
+                'gameName' => $gameName, // $game['gamename'],
                 'position' => $pos,
                 'type' => $game['gametype'],
                 'rtp' => $this->gameRTP($game['gamecode']),
                 'imageUrl' => '-',
-                'imageAlt' => $game['gamename'],
+                'imageAlt' => $gameName, // $game['gamename'],
             ];
 
             $pos++;
         }
 
-        dd($test);
-        // dd($requestData);
+        // dd($test);
+        dd($requestData);
 
         // foreach ($requestData as $data) {
         //     $response = Http::withHeaders([
@@ -358,7 +354,6 @@ class Cq9StgController extends Controller
             'CA01'  => '0',
             'CE09'  => '97.5',
             'CE02'  => '97.03',
-
         ];
 
         return $rtps[$gameID] ?? 'not found';
