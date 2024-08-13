@@ -42,4 +42,9 @@ $router->group(['prefix' => 'migrate'], function () use ($router) {
         $router->post('/Staging',    ['uses' => 'SabStgController@migrate']);
         // $router->post('/Production', ['uses' => 'SabProdController@migrate']);
     });
+
+    // CQ9
+    $router->group(['prefix' => 'CQ9'], function () use ($router) {
+        $router->post('/Staging',    ['uses' => 'Cq9StgController@migrate']);
+    });
 });
