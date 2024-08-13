@@ -47,4 +47,14 @@ $router->group(['prefix' => 'migrate'], function () use ($router) {
     $router->group(['prefix' => 'CQ9'], function () use ($router) {
         $router->post('/Staging',    ['uses' => 'Cq9StgController@migrate']);
     });
+
+    // JDB
+    $router->group(['prefix' => 'JDB'], function () use ($router) {
+        $router->post('/Staging',    ['uses' => 'JdbStgController@migrate']);
+    });
+
+    // HCG
+    $router->group(['prefix' => 'HCG'], function () use ($router) {
+        $router->post('/Staging',    ['uses' => 'HcgStgController@migrate']);
+    });
 });
