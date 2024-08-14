@@ -35,7 +35,7 @@ class HcgStgController extends Controller
         // foreach ($requestData as $data) {
         //     $response = Http::withHeaders([
         //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN_STG')
-        //         // ])->post(env('ADD_GAME_API_STG'), $data);
+        //     // ])->post(env('ADD_GAME_API_STG'), $data);
         //     ])->post('dummyApi.com', $data);
 
         //     Log::info(json_encode([
