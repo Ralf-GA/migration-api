@@ -56,5 +56,6 @@ $router->group(['prefix' => 'migrate'], function () use ($router) {
     // HCG
     $router->group(['prefix' => 'HCG'], function () use ($router) {
         $router->post('/Staging',    ['uses' => 'HcgStgController@migrate']);
+        $router->post('/Production', ['uses' => 'HcgProdController@migrate']);
     });
 });
