@@ -51,6 +51,7 @@ $router->group(['prefix' => 'migrate'], function () use ($router) {
     // JDB
     $router->group(['prefix' => 'JDB'], function () use ($router) {
         $router->post('/Staging',    ['uses' => 'JdbStgController@migrate']);
+        $router->post('/Production',    ['uses' => 'JdbProdController@migrate']);
     });
 
     // HCG
