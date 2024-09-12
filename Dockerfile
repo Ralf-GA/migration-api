@@ -32,8 +32,8 @@ RUN pecl install xdebug \
 RUN pecl install protobuf \
     && docker-php-ext-enable protobuf
 
-RUN pecl install grpc
-RUN docker-php-ext-enable grpc
+# RUN pecl install grpc
+# RUN docker-php-ext-enable grpc
 
 
 COPY ./docker/xdebug/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
