@@ -17,7 +17,7 @@ class SabStgController extends Controller
             $requestData[] = [
                 'providerCode' => 'SAB',
                 'providerName' => 'SAB Sportsbook',
-                'gameCode' => $betTypeID,
+                'gameCode' => (string)$betTypeID,
                 'gameName' => $betTypeName,
                 'position' => $pos,
                 'type' => $betTypeName,
