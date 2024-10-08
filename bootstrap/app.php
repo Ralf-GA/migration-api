@@ -91,6 +91,7 @@ $app->configure('app');
 |
 */
 
+$app->register(Illuminate\Queue\QueueServiceProvider::class);
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
