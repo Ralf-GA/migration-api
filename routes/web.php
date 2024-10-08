@@ -40,7 +40,7 @@ $router->group(['prefix' => 'migrate'], function () use ($router) {
     // SAB
     $router->group(['prefix' => 'sab'], function () use ($router) {
         $router->post('/staging', ['uses' => 'SabStgController@migrate']);
-        // $router->post('/production', ['uses' => 'SabProdController@migrate']);
+        $router->post('/production', ['uses' => 'SabProdController@migrate']);
     });
 
     // CQ9

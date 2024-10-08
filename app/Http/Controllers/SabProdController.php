@@ -11,8 +11,9 @@ class SabProdController extends Controller
     public function migrate()
     {
         $pos = 1;
-
+        $batchSize = 50;
         $requestData = [];
+
         foreach ($this->betType() as $betTypeID => $betTypeName) {
             $requestData[] = [
                 'providerCode' => 'SAB',
@@ -27,24 +28,43 @@ class SabProdController extends Controller
             ];
 
             $pos++;
+
+            if (count($requestData) === $batchSize) {
+                $this->sendBatch($requestData);
+                $requestData = [];
+
+                sleep(3);
+            }
+
         }
 
-        dd($requestData);
+        if (!empty($requestData)) {
+            $this->sendBatch($requestData);
+            sleep(3);
+        }
 
+
+        // dd('test');
+        dd($requestData);
+    }
+
+    private function sendBatch(array $requestData)
+    {
         // WARNING: Uncomment the code below when you are ready to make the actual API calls
 
-        // foreach ($requestData as $data) {
-        //     $response = Http::withHeaders([
-        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN_PROD')
-        //     ])->post('dummyApi', $data);
-        //     // ])->post(env('ADD_GAME_API_PROD'), $data);
+        foreach ($requestData as $data) {
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer ' . env('BEARER_TOKEN_PROD')
+            ])->post('dummyApi', $data);
+            // ])->post(env('ADD_GAME_API_PROD'), $data);
 
+            Log::info(json_encode([
+                'request' => $data,
+                'response' => $response->body()
+            ]));
 
-        //     Log::info(json_encode([
-        //         'request' => $data,
-        //         'response' => $response->body()
-        //     ]));
-        // }
+            sleep(1);
+        }
     }
 
     private function betType()
