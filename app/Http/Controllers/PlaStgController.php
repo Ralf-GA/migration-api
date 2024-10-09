@@ -10,7 +10,13 @@ class PlaStgController extends Controller
 {
     public function migrate()
     {
-        $pos = 1;
+        // $pos = 1;
+        // $pos = 51;
+        // $pos = 101;
+        // $pos = 151;
+        // $pos = 201;
+        // $pos = 251;
+        // $pos = 301;
 
         $gameList = $this->gameList();
 
@@ -36,17 +42,17 @@ class PlaStgController extends Controller
 
         dd($requestData);
 
-        // foreach ($requestData as $data) {
-        //     $response = Http::withHeaders([
-        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN_PROD')
-        //         // ])->post(env('ADD_GAME_API_PROD'), $data);
-        //     ])->post('dummyApi.com', $data);
+        foreach ($requestData as $data) {
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer ' . env('BEARER_TOKEN_PROD')
+                // ])->post(env('ADD_GAME_API_PROD'), $data);
+            ])->post('dummyApi.com', $data);
 
-        //     Log::info(json_encode([
-        //         'request' => $data,
-        //         'response' => $response->body()
-        //     ]));
-        // }
+            Log::info(json_encode([
+                'request' => $data,
+                'response' => $response->body()
+            ]));
+        }
     }
 
     private function gameList()
@@ -62,10 +68,6 @@ class PlaStgController extends Controller
 
             // ["Aces and Faces™ Multi-Hand", 'af_mh, af_mh1, af_mh2, af_mh3, af_mh4', 'Video Poker', '99.26'],
             ["Aces and Faces™ Multi-Hand", 'af_mh', 'Video Poker', '99.26'],
-            ["Aces and Faces™ Multi-Hand", 'af_mh1', 'Video Poker', '99.26'],
-            ["Aces and Faces™ Multi-Hand", 'af_mh2', 'Video Poker', '99.26'],
-            ["Aces and Faces™ Multi-Hand", 'af_mh3', 'Video Poker', '99.26'],
-            ["Aces and Faces™ Multi-Hand", 'af_mh4', 'Video Poker', '99.26'],
 
             ["Age of Egypt", 'agoeg', 'Slot Machines', '97.05'],
             ["Alohawaii: Cash Collect™", 'gpas_alohacc_pop', 'Slot Machines', '95.87'],
@@ -105,13 +107,13 @@ class PlaStgController extends Controller
             ["Cash It™", 'crit', 'Arcade', '95.99'],
             ["Cashback Blackjack", 'bjcb', 'Table & Card Games', '99.55'],
             ["Casino Charms", 'gpas_cascharms_pop', 'Slot Machines', '96.06'],
-        ];
-
-        return [
             ["Casino Hold'Em", 'cheaa', 'Table & Card Games', '0'],
             ["Cat Queen", 'catqc', 'Slot Machines', '93.60'],
             ["Chaoji 888", 'chao', 'Slot Machines', '96.47'],
             ["Chili Eruption Thundershots™ ", 'gpas_ceruption_pop', 'Slot Machines', '96.17'],
+        ];
+
+        return [
             ["Chilli Xtreme™", 'gpas_cxtreme_pop', 'Slot Machines', '95.23'],
             ["Chinese Kitchen", 'cm', 'Slot Machines', '96.92'],
             ["Circus Launch™", 'circ', 'Arcade', '95.99'],
@@ -158,13 +160,13 @@ class PlaStgController extends Controller
             ["Fire Blaze™: Fire Fighter™", 'gpas_ffighter_pop', 'Slot Machines', '95.92'],
             ["FISH! Shoot for Cash", 'fishshr', 'Arcade', '95.80'],
             ["Fishin' Bonanza™", 'gpas_ffever_pop', 'Slot Machines', '96.51'],
-        ];
-
-        return [
             ["Football Rules!", 'fbr', 'Slot Machines', '97.06'],
             ["Football! Cash Collect™", 'gpas_focashco_pop', 'Slot Machines', '94.91'],
             ["Forest Prince™", 'gpas_fprince_pop', 'Slot Machines', '95.84'],
             ["Fortune Day", 'fday', 'Slot Machines', '97.51'],
+        ];
+
+        return [
             ["Fortune Lions", 'frtln', 'Slot Machines', '96.63'],
             ["Fortunes of the Fox (Foxy Fortune)", 'fxf', 'Slot Machines', '95.11'],
             ["Free Chip Blackjack", 'fcbj', 'Table & Card Games', '99.23'],
@@ -211,13 +213,13 @@ class PlaStgController extends Controller
             ["Ice Cave", 'gpas_icave_pop', 'Slot Machines', '0'],
             ["Irish Luck", 'irl', 'Slot Machines', '94.25'],
             ["Jacks or Better", 'po', 'Video Poker', '99.54'],
-        ];
-
-        return [
             ["Jacks or Better Multi-Hand™", 'jb_mh', 'Video Poker', '97.30'],
             ["Jane Jones in Book of Kings 2", 'gpas_nalight_pop', 'Slot Machines', '96.50'],
             ["Jin Qian Wa", 'jqw', 'Slot Machines', '96.96'],
             ["Jinfu Long", 'gpas_jflong_pop', 'Slot Machines', '96.51'],
+        ];
+
+        return [
             ["JinfuXingyun", 'gpas_xjinfu_pop', 'Slot Machines', '96.49'],
             ["Joker Poker", 'jp', 'Table & Card Games', '98.60'],
             ["Joker Rush™", 'gpas_jrush_pop', 'Slot Machines', '96.00'],
@@ -264,13 +266,13 @@ class PlaStgController extends Controller
             ["Ni Shu Shen Me", 'gpas_nsshen_pop', 'Slot Machines', '96.86'],
             ["Ox Riches", 'gpas_strongox_pop', 'Slot Machines', '96.93'],
             ["Panda Luck", 'gpas_pluck_pop', 'Slot Machines', '96.91'],
-        ];
-
-        return [
             ["Panther Moon", 'pmn', 'Slot Machines', '95.17'],
             ["Panther Pays", 'gpas_panthpays_pop', 'Slot Machines', '96.26'],
             ["Penguin Vacation", 'pgv', 'Slot Machines', '94.25'],
             ["Penny Roulette", 'prol', 'Table & Card Games', '97.30'],
+        ];
+
+        return [
             ["Perfect Blackjack", 'pfbj_mh5', 'Table & Card Games', '99.58'],
             ["Pharaoh's Daughter", 'gpas_scqueen_pop', 'Slot Machines', '96.50'],
             ["Pharaoh's Secrets", 'pst', 'Slot Machines', '94.00'],
@@ -317,13 +319,13 @@ class PlaStgController extends Controller
             ["Silver Bullet", 'sib', 'Slot Machines', '95.44'],
             ["Silver Bullet Bandit: Cash Collect™", 'gpas_sbullet_pop', 'Slot Machines', '95.44'],
             ["Sky Queen", 'gpas_squeen_pop', 'Slot Machines', '96.58'],
-        ];
-
-        return [
             ["Sorcerer's Guild of Magic", 'gpas_sgomagic_pop', 'Slot Machines', '96.09'],
             ["Space Hunter: Shoot for Cash™", 'shsfc', 'Arcade', '96.50'],
             ["Spin A win", 'lwh', 'Table & Card Games', '97.50'],
             ["Spread-Bet Roulette", 'sbro', 'Table & Card Games', '97.30'],
+        ];
+
+        return [
             ["Stallion Strike", 'gpas_sstrike_pop', 'Slot Machines', '96.27'],
             ["Starmada Exiles", 'gpas_sexiles_pop', 'Slot Machines', '96.15'],
             ["Stars Ablaze", 'gpas_starsablaze_pop', 'Slot Machines', '95.50'],
@@ -370,13 +372,13 @@ class PlaStgController extends Controller
             ["Mega Fire Blaze: 3 Wizards™", 'gpas_3wizards_pop', 'Slot Machines', '0'],
             ["Gold Hit: O'Reilly's Charms™ FB", 'gpas_orwifefb_pop', 'Slot Machines', '0'],
             ["The Great Genie™", 'gpas_gegenie_pop', 'Slot Machines', '95.44'],
-        ];
-
-        return [
             ["Veils Of Venice™", 'gpas_venemasks_pop', 'Slot Machines', '0'],
             ["OINK OINK OINK™", 'gpas_oink_pop', 'Slot Machines', '95.91'],
             ["Macabra Linx™", 'gpas_mabralinx_pop', 'Slot Machines', '0'],
             ["Leprechaun's Luck - Cash Collect™ MEGAWAYS™", 'gpas_lluckmcc_pop', 'Slot Machines', '95.38'],
+        ];
+
+        return [
             ["Panther Moon: Bonus Lines™", 'gpas_pmoonbl_pop', 'Slot Machines', '95.54'],
             ["Mega Fire Blaze: Dwarves and Goblins™", 'gpas_mfbdag_pop', 'Slot Machines', '95.71'],
             ["Gold Trio™", 'gpas_gtfb_pop', 'Slot Machines', '95.90'],
@@ -384,6 +386,11 @@ class PlaStgController extends Controller
             ["Elephant Riches™", 'gpas_elphrich_pop', 'Slot Machines', '0'],
             ["Wolves! Cash Collect & Link™", 'gpas_wolcc_pop', 'Slot Machines', '95.57'],
             ["Candy Roll™", 'gpas_sweroll_pop', 'Slot Machines', '0']
+
+            // ["Aces and Faces™ Multi-Hand", 'af_mh1', 'Video Poker', '99.26'],
+            // ["Aces and Faces™ Multi-Hand", 'af_mh2', 'Video Poker', '99.26'],
+            // ["Aces and Faces™ Multi-Hand", 'af_mh3', 'Video Poker', '99.26'],
+            // ["Aces and Faces™ Multi-Hand", 'af_mh4', 'Video Poker', '99.26'],
         ];
     }
 }
