@@ -16,13 +16,14 @@ class PlaStgController extends Controller
         // $pos = 151;
         // $pos = 201;
         // $pos = 251;
-        $pos = 301;
+        // $pos = 301;
+        $pos = 308;
 
         $gameList = $this->gameList();
 
         foreach ($gameList as $game) {
             $type = 'slot';
-            if ($game[2] != 'Slot Machines')
+            if ($game[2] != 'Slot Machines' && $game[2] != 'Slot w/ Buy Feature')
                 $type = 'arcade';
 
             $requestData[] = [
@@ -378,19 +379,34 @@ class PlaStgController extends Controller
         //     ["Leprechaun's Luck - Cash Collect™ MEGAWAYS™", 'gpas_lluckmcc_pop', 'Slot Machines', '95.38'],
         // ];
 
-        return [
-            ["Panther Moon: Bonus Lines™", 'gpas_pmoonbl_pop', 'Slot Machines', '95.54'],
-            ["Mega Fire Blaze: Dwarves and Goblins™", 'gpas_mfbdag_pop', 'Slot Machines', '95.71'],
-            ["Gold Trio™", 'gpas_gtfb_pop', 'Slot Machines', '95.90'],
-            ["Feng Shui Flip™", 'gpas_fsflip_pop', 'Slot Machines', '95.48'],
-            ["Elephant Riches™", 'gpas_elphrich_pop', 'Slot Machines', '0'],
-            ["Wolves! Cash Collect & Link™", 'gpas_wolcc_pop', 'Slot Machines', '95.57'],
-            ["Candy Roll™", 'gpas_sweroll_pop', 'Slot Machines', '0']
+        // return [
+        //     ["Panther Moon: Bonus Lines™", 'gpas_pmoonbl_pop', 'Slot Machines', '95.54'],
+        //     ["Mega Fire Blaze: Dwarves and Goblins™", 'gpas_mfbdag_pop', 'Slot Machines', '95.71'],
+        //     ["Gold Trio™", 'gpas_gtfb_pop', 'Slot Machines', '95.90'],
+        //     ["Feng Shui Flip™", 'gpas_fsflip_pop', 'Slot Machines', '95.48'],
+        //     ["Elephant Riches™", 'gpas_elphrich_pop', 'Slot Machines', '0'],
+        //     ["Wolves! Cash Collect & Link™", 'gpas_wolcc_pop', 'Slot Machines', '95.57'],
+        //     ["Candy Roll™", 'gpas_sweroll_pop', 'Slot Machines', '0']
+        // ];
 
-            // ["Aces and Faces™ Multi-Hand", 'af_mh1', 'Video Poker', '99.26'],
-            // ["Aces and Faces™ Multi-Hand", 'af_mh2', 'Video Poker', '99.26'],
-            // ["Aces and Faces™ Multi-Hand", 'af_mh3', 'Video Poker', '99.26'],
-            // ["Aces and Faces™ Multi-Hand", 'af_mh4', 'Video Poker', '99.26'],
+        return [
+            ["Aces and Faces™ Multi-Hand", 'af_mh1', 'Video Poker', '99.26'],
+            ["Aces and Faces™ Multi-Hand", 'af_mh2', 'Video Poker', '99.26'],
+            ["Aces and Faces™ Multi-Hand", 'af_mh3', 'Video Poker', '99.26'],
+            ["Aces and Faces™ Multi-Hand", 'af_mh4', 'Video Poker', '99.26'],
+            ["Breach the Vault™", 'gpas_bvault_pop', 'Slot Machines', '95.51'],
+            ["Circuit Shock™", 'gpas_cish_pop', 'Slot w/ Buy Feature', '93.47'],
+            ["Gates of Camelot™", 'gpas_goc_pop', 'Slot Machines', '95.50'],
+            ["Gold Hit & Link: JP Bacon & Co™", 'gpas_goldh4_pop', 'Slot Machines', '0'],
+            ["Gold Hit & Link: Tiger Jones™", 'gpas_ghltj_pop', 'Slot Machines', '0'],
+            ["Gold Trio: Sinbad's Riches™", 'gpas_ctrpl_pop', 'Slot Machines', '0'],
+            ["Honey Gems™", 'gpas_hongem_pop', 'Slot Machines', '95.46'],
+            ["Joker Rush: Cash Collect™", 'gpas_jrushcc_pop', 'Slot Machines', '95.44'],
+            ["Leprechaun's Luck: Cash Collect™", 'gpas_ccluck_pop', 'Slot Machines', '95.38'],
+            ["Sweet n' Juicy™", 'gpas_swnj_pop', 'Slot Machines', '0'],
+            ["Xtreme Fire Blaze Roulette™", 'xfbronbf', 'Table & Card Games', '0'],
+            ["Full Moon: White King™", 'gpas_fmwking_pop', 'Slot Machines', '95.78'],
+            ["Lucky Bass: Mega Cash Collect™", 'gpas_lbmcc_pop', 'Slot Machines', '0'],
         ];
     }
 }
