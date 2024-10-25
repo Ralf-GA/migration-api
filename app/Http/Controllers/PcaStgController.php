@@ -22,7 +22,7 @@ class PcaStgController extends Controller
                 'gameCode' => $game[0],
                 'gameName' => Str::lower($game[1]),
                 'position' => $pos,
-                'type' => Str::lower($game[2]), // !!unsure
+                'type' => Str::lower($game[2]),
                 'rtp' => '0',
                 'imageUrl' => '-',
                 'imageAlt' => Str::lower($game[1]),
