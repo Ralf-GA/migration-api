@@ -11,9 +11,48 @@ class SabProdController extends Controller
     public function migrate()
     {
         $pos = 1;
+        $betTypeList = $this->betType1();
+        // $pos = 51;
+        // $betTypeList = $this->betType2();
+        // $pos = 101;
+        // $betTypeList = $this->betType3();
+        // $pos = 151;
+        // $betTypeList = $this->betType4();
+        // $pos = 201;
+        // $betTypeList = $this->betType5();
+        // $pos = 251;
+        // $betTypeList = $this->betType6();
+        // $pos = 301;
+        // $betTypeList = $this->betType7();
+        // $pos = 351;
+        // $betTypeList = $this->betType8();
+        // $pos = 401;
+        // $betTypeList = $this->betType9();
+        // $pos = 451;
+        // $betTypeList = $this->betType10();
+        // $pos = 501;
+        // $betTypeList = $this->betType11();
+        // $pos = 551;
+        // $betTypeList = $this->betType12();
+        // $pos = 601;
+        // $betTypeList = $this->betType13();
+        // $pos = 651;
+        // $betTypeList = $this->betType14();
+        // $pos = 701;
+        // $betTypeList = $this->betType15();
+        // $pos = 751;
+        // $betTypeList = $this->betType16();
+        // $pos = 801;
+        // $betTypeList = $this->betType17();
+        // $pos = 851;
+        // $betTypeList = $this->betType18();
+        // $pos = 901;
+        // $betTypeList = $this->betType19();
+        // $pos = 951;
+        // $betTypeList = $this->betType20();
 
         $requestData = [];
-        foreach ($this->betType() as $betTypeID => $betTypeName) {
+        foreach ($betTypeList as $betTypeID => $betTypeName) {
             $requestData[] = [
                 'providerCode' => 'SAB',
                 'providerName' => 'SABA Sportsbook',
@@ -47,7 +86,7 @@ class SabProdController extends Controller
         // }
     }
 
-    private function betType()
+    private function betType1()
     {
         return [
             1 => "Handicap",
@@ -100,6 +139,12 @@ class SabProdController extends Controller
             65 => "60 min OE",
             66 => "End of day OE",
             71 => "Casino Games",
+        ]; 
+    }
+
+    private function betType2()
+    {
+        return [
             72 => "Casino Progressive Bonus",
             73 => " Bingo",
             81 => "1st Ball O/U",
@@ -150,6 +195,12 @@ class SabProdController extends Controller
             155 => "Set x Game Handicap",
             156 => "Set x Total Game Over/Under",
             157 => "Odd/Even (3rd)",
+        ]; 
+    }
+
+    private function betType3()
+    {
+        return [
             158 => "Correct Score",
             159 => "Exact Total Goals",
             160 => "Next Goal (3rd)",
@@ -200,6 +251,12 @@ class SabProdController extends Controller
             205 => "1H Away Corner Over/Under",
             206 => "First Corner",
             207 => "1H First Corner",
+        ]; 
+    }
+
+    private function betType4()
+    {
+        return [
             208 => "Last Corner",
             209 => "1H Last Corner",
             210 => "Player Sent Off",
@@ -250,6 +307,12 @@ class SabProdController extends Controller
             399 => "Extra Time Correct Score (own)",
             400 => "Extra Time Odd/Even",
             401 => "Home Team Over/Under",
+        ]; 
+    }
+
+    private function betType5()
+    {
+        return [
             402 => "Away Team Over/Under",
             403 => "1H Home Team Over/Under",
             404 => "1H Away Team Over/Under",
@@ -300,6 +363,12 @@ class SabProdController extends Controller
             449 => "Double Chance/Total Goals",
             450 => "Odd Even/Total Goals",
             451 => "Both Teams to Score/Double Chance",
+        ]; 
+    }
+
+    private function betType6()
+    {
+        return [
             452 => "Highest Scoring Half (2 Way)",
             453 => "1H 3-Way Handicap",
             454 => "Double Chance/First Team To Score",
@@ -350,6 +419,12 @@ class SabProdController extends Controller
             502 => "Match Winner 1X2",
             599 => "Others",
             601 => "Winning Margin 14 Way",
+        ]; 
+    }
+
+    private function betType7()
+    {
+        return [
             602 => "Winning Margin 12 Way",
             603 => "Which Team To Score The Highest Quarter",
             604 => "Which Team To Score The First Basket",
@@ -400,6 +475,12 @@ class SabProdController extends Controller
             649 => "2H Ending Game",
             650 => "Quarter X Ending Game",
             701 => "Match Handicap",
+        ]; 
+    }
+
+    private function betType8()
+    {
+        return [
             702 => "Match Number of Games",
             703 => "Match Correct Score",
             704 => "Match Points Handicap",
@@ -450,6 +531,12 @@ class SabProdController extends Controller
             1035 => "Max11x5",
             1036 => "Max11x5 90",
             1037 => "MaxDice 2",
+        ]; 
+    }
+
+    private function betType9()
+    {
+        return [
             1038 => "MaxDice",
             1039 => "Max Racing",
             1040 => "Max Racing 2",
@@ -500,6 +587,12 @@ class SabProdController extends Controller
             1304 => "Total Sets",
             1305 => "Match Total Games Odd/Even",
             1306 => "Match Total Games Over/Under",
+        ]; 
+    }
+
+    private function betType10()
+    {
+        return [
             1307 => "Match Total Games 3-way",
             1308 => "Match Games Handicap (3rd)",
             1309 => "Match Handicap Games 3-way",
@@ -550,6 +643,12 @@ class SabProdController extends Controller
             8818 => "Team with Highest Inning Score",
             8819 => "Lead After X Innings",
             8820 => "Race To X Runs",
+        ]; 
+    }
+
+    private function betType11()
+    {
+        return [
             8821 => "First Team To Score ",
             8822 => "Winning Margin (Baseball)",
             8823 => "X Inning Hits Handicap",
@@ -600,6 +699,12 @@ class SabProdController extends Controller
             9033 => "Map X 3rd Dragon",
             9034 => "Map X Total Barons Handicap",
             9035 => "Map X Total Barons Over/Under",
+        ]; 
+    }
+
+    private function betType12()
+    {
+        return [
             9036 => "Map X Total Barons Moneyline",
             9037 => "Map X 1st Baron",
             9038 => "Map X 2nd Baron",
@@ -650,6 +755,12 @@ class SabProdController extends Controller
             9083 => "Map X Total Barons Odd/Even",
             9084 => "Map X Total Inhibitors Odd/Even",
             9085 => "Map X Total Tyrants Odd/Even",
+        ]; 
+    }
+
+    private function betType13()
+    {
+        return [
             9086 => "Map X Total Overlords Odd/Even",
             9087 => "Map X Overtime",
             9088 => "Correct Map Score",
@@ -700,6 +811,12 @@ class SabProdController extends Controller
             9133 => "Map X Will Any Aegis Be Snatched Yes/No",
             9134 => "Map X First Tower Time(Mins) Over/Under",
             9135 => "Map X First Tower Location",
+        ]; 
+    }
+
+    private function betType14()
+    {
+        return [
             9136 => "Map X First Roshan Time(Mins) Over/Under",
             9137 => "Map X First Barrack Time(Mins) Over/Under",
             9138 => "Map X First Barrack Location",
@@ -750,6 +867,12 @@ class SabProdController extends Controller
             9440 => "Most Fours",
             9441 => "Most Sixes",
             9442 => "Highest Opening Partnership",
+        ]; 
+    }
+
+    private function betType15()
+    {
+        return [
             9443 => "Highest Score in Over 1",
             9444 => "Highest Score in Group 1-X",
             9445 => "Match Runs",
@@ -800,6 +923,12 @@ class SabProdController extends Controller
             9490 => "Home Over X Ball Y Exact Runs",
             9491 => "Away Over X Ball Y Exact Runs",
             9492 => "Home 1st Inns Over X Ball Y Exact Runs",
+        ]; 
+    }
+
+    private function betType16()
+    {
+        return [
             9493 => "Away 1st Inns Over X Ball Y Exact Runs",
             9494 => "Home 2nd Inns Over X Ball Y Exact Runs",
             9495 => "Away 2nd Inns Over X Ball Y Exact Runs",
@@ -850,6 +979,12 @@ class SabProdController extends Controller
             9540 => "Super Over Winner (Back & Lay)",
             9541 => "Home Inns Runs Fancy",
             9542 => "Away Inns Runs Fancy",
+        ]; 
+    }
+
+    private function betType17()
+    {
+        return [
             9543 => "Home 1st Inns Runs Fancy",
             9544 => "Away 1st Inns Runs Fancy",
             9545 => "Home 2nd Inns Runs Fancy",
@@ -900,6 +1035,12 @@ class SabProdController extends Controller
             9590 => "Home 2nd Inns Run Outs Fancy",
             9591 => "Away 2nd Inns Run Out Fancy",
             9592 => "Home Inns Wickets Fancy",
+        ]; 
+    }
+
+    private function betType18()
+    {
+        return [
             9593 => "Away Inns Wickets Fancy",
             9594 => "Home 1st Inns Wickets Fancy",
             9595 => "Away 1st Inns Wickets Fancy",
@@ -950,6 +1091,12 @@ class SabProdController extends Controller
             9640 => "Home 2nd Inns Wicket X Method of Dismissal (6 Way)",
             9641 => "Away 2nd Inns Wicket X Method of Dismissal (6 Way)",
             9650 => "Home Top Batsman",
+        ]; 
+    }
+
+    private function betType19()
+    {
+        return [
             9651 => "Away Top Batsman",
             9652 => "Home 1st Inns Top Batsman",
             9653 => "Away 1st Inns Top Batsman",
@@ -1000,6 +1147,12 @@ class SabProdController extends Controller
             9698 => "Home Batsman Milestones",
             9699 => "Away Batsman Milestones",
             9702 => "Home 1st Inns Batsman Milestones",
+        ]; 
+    }
+
+    private function betType20()
+    {
+        return [
             9703 => "Away 1st Inns Batsman Milestones",
             9704 => "Home 2nd Inns Batsman Milestones",
             9705 => "Away 2nd Inns Batsman Milestones",
