@@ -25,7 +25,6 @@ class PlaProdController extends Controller
         // $pos = 301;
         // $gameList = $this->gameList7();
 
-
         foreach ($gameList as $game) {
             $type = 'slot';
             if ($game[2] != 'Slot Machines' && $game[2] != 'Slot w/ Buy Feature')
@@ -59,6 +58,8 @@ class PlaProdController extends Controller
         //         'response' => $response->body()
         //     ]));
         // }
+
+        dd('done');
     }
 
     private function gameList1()
@@ -352,7 +353,7 @@ class PlaProdController extends Controller
             ["Starmada Exiles", "gpas_sexiles_pop", "Slot Machines", "96.15"],
             ["Stars Ablaze", "gpas_starsablaze_pop", "Slot Machines", "95.50"],
             ["Stars Awakening", "strsawk", "Slot Machines", "95.93"],
-            ["Super Roulette", "supro", "Table & Card Games", "95.60."],
+            ["Super Roulette", "supro", "Table & Card Games", "95.60"],
             ["Thai Paradise", "tpd2", "Slot Machines", "94.36"],
             ["The Riches of Don Quixote™", "donq", "Slot Machines", "94.99"],
             ["Tiger Claw", "tigc", "Slot Machines", "95.96"],

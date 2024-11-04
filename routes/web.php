@@ -63,7 +63,7 @@ $router->group(['prefix' => 'migrate'], function () use ($router) {
     // PLA
     $router->group(['prefix' => 'pla'], function () use ($router) {
         $router->post('/staging', ['uses' => 'PlaStgController@migrate']);
-        // $router->post('/production', ['uses' => 'PlaProdController@migrate']);
+        $router->post('/production', ['uses' => 'PlaProdController@migrate']);
     });
 
     // PCA
