@@ -17,19 +17,18 @@ class PcaProdController extends Controller
         // $gameList = $this->gameList2();
         // $pos = 101;
         // $gameList = $this->gameList3();
-        // $pos = 123;
 
         foreach ($gameList as $game) {
             $requestData[] = [
                 'providerCode' => 'PCA',
                 'providerName' => 'PLAYTECH CASINO',
-                'gameCode' => $game[0],
-                'gameName' => Str::lower($game[1]),
+                'gameCode' => $game[2],
+                'gameName' => Str::lower($game[0]),
                 'position' => $pos,
-                'type' => Str::lower($game[2]),
+                'type' => Str::lower($game[1]),
                 'rtp' => '0',
                 'imageUrl' => '-',
-                'imageAlt' => Str::lower($game[1]),
+                'imageAlt' => Str::lower($game[0]),
             ];
 
             $pos++;
@@ -38,16 +37,18 @@ class PcaProdController extends Controller
         dd($requestData);
 
         // foreach ($requestData as $data) {
-        //     // $response = Http::withHeaders([
-        //     //     'Authorization' => 'Bearer ' . env('BEARER_TOKEN_STG')
-        //     // // ])->post(env('ADD_GAME_API_STG'), $data);
-        //     // ])->post('dummyApi.com', $data);
+        //     $response = Http::withHeaders([
+        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN_PROD')
+        //     // ])->post(env('ADD_GAME_API_PROD'), $data);
+        //     ])->post('dummyApi.com', $data);
 
         //     Log::info(json_encode([
         //         'request' => $data,
         //         'response' => $response->body()
         //     ]));
         // }
+
+        dd('Inserted Games!');
     }
 
     private function gameList1()
