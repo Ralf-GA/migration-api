@@ -119,6 +119,17 @@ class PlaStgV2Controller extends Controller
             ['gpas_queenotp_pop','Queen of the Pyramids: Mega Cash Collect','POP Slots','95.41'],
             ['gpas_hrules_pop','Triple Stop: Hercules Rules','POP Slots','95.48'],
             ['gpas_wotgenie_pop','Ways of the Genie','POP Slots','95.48'],
+            ['arc','Archer','Slot Machines','96.77'],
+            ['bbbo','Berry Berry Bonanza','Slot Machines','95.99'],
+            ['bfb','Buffalo Blitz','Slot Machines','95.96'],
+            ['ct',"Captain's Treasure",'Slot Machines','97.06'],
+            ['dnr','Dolphin Reef','Slot Machines','95.23'],
+            ['epa','Epic Ape','Slot Machines','95.96'],
+            ['gos','Golden Tour','Slot Machines','97.71'],
+            ['bib','Great Blue','Slot Machines','96.03'],
+            ['hk','Highway Kings','Slot Machines','97.06'],
+            ['legwld','Legacy of the Wild','Slot Machines','96.06'],
+            ['sfh','Safari Heat','Slot Machines','96.16']
         ];
     }
 }
