@@ -72,4 +72,9 @@ $router->group(['prefix' => 'migrate'], function () use ($router) {
         $router->post('/production', ['uses' => 'PcaProdController@migrate']);
     });
 
+    // YGR
+    $router->group(['prefix' => 'ygr'], function () use ($router) {
+        $router->post('/staging', ['uses' => 'YgrStgController@migrate']);
+        $router->post('/production', ['uses' => 'YgrProdController@migrate']);
+    });
 });
