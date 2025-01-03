@@ -70,7 +70,6 @@ class PlaStgV2Controller extends Controller
             ['gpas_sqmways_pop','Fire Blaze: Sky Queen Megaways','POP Slots','96.00'],
             ['gpas_ghlink2_pop','Gold Hit & Link: Tiger Jones','POP Slots','95.45'],
             ['gpas_ghitdevb1_pop','Gold Hit: Lil Demon B1','POP Slots','93.62'],
-            ['gpas_hgems_pop','Hot Gems','POP Slots','95.99'],
             ['gpas_ldmcashc_pop','Lil Demon: Mega Cash Collect','POP Slots','95.50'],
             ['gpas_samufur_pop','Samurai Fury','POP Slots','95.50'],
             ['gpas_woluckb1_pop',"Spin 'Em Round! B1",'POP Slots','93.09'],
