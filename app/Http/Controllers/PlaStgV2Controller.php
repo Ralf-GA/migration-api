@@ -10,7 +10,7 @@ class PlaStgV2Controller extends Controller
 {
     public function migrate()
     {
-        $pos = 325;
+        $pos = 326;
 
         $gameList = $this->gameList();
 
@@ -52,7 +52,6 @@ class PlaStgV2Controller extends Controller
     private function gameList()
     {
         return [
-            ['baws','Baccarat without Sidebets','Card Games','0'],
             ['bafr','Banca Francesa','Table Games','98.41'],
             ['ccro','Cash Collect Roulette','Table Games','97.30'],
             ['ccrobf','Cash Collect Roulette BF','Table & Card Games','97.40'],
