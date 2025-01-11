@@ -34,14 +34,15 @@ class PcaStgV2Controller extends Controller
         dd($requestData);
 
         // foreach ($requestData as $data) {
-        //     // $response = Http::withHeaders([
-        //     //     'Authorization' => 'Bearer ' . env('BEARER_TOKEN_STG')
-        //     // // ])->post(env('ADD_GAME_API_STG'), $data);
+        //     $response = Http::withHeaders([
+        //         'Authorization' => 'Bearer ' . env('BEARER_TOKEN_STG')
+        //     ])->post(env('ADD_GAME_API_STG'), $data);
         //     // ])->post('dummyApi.com', $data);
 
         //     Log::info(json_encode([
         //         'request' => $data,
         //         'response' => $response->body()
+        //         // 'response' => 'test'
         //     ]));
         // }
     }
