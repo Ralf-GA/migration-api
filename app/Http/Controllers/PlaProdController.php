@@ -62,6 +62,40 @@ class PlaProdController extends Controller
         dd('done');
     }
 
+    public function delete()
+    {
+        $gameList = $this->gameList1();
+        // $gameList = $this->gameList2();
+        // $gameList = $this->gameList3();
+        // $gameList = $this->gameList4();
+        // $gameList = $this->gameList5();
+        // $gameList = $this->gameList6();
+        // $gameList = $this->gameList7();
+        // $gameList = $this->recentlyAddedGames();
+
+        foreach ($gameList as $game) {
+            $requestData[] = [
+                'provider_code' => 'PLA',
+                'code' => $game[1]
+            ];
+        }
+
+        dd($requestData);
+
+        // foreach ($requestData as $data) {
+        //     $response = Http::withHeaders([
+        //         'Authorization' => 'Bearer ' . env('DELETE_API_BEARER_TOKEN_PROD'),
+        //         'Content-Type' => 'application/json'
+        //     // ])->post(env('DELETE_GAME_API_PROD'), $data);
+        //     ])->post('dummyApi.com', $data);
+
+        //     Log::info(json_encode([
+        //         'request' => $data,
+        //         'response' => $response->body()
+        //     ]));
+        // }
+    }
+
     private function gameList1()
     {
         return [
@@ -412,6 +446,17 @@ class PlaProdController extends Controller
             ["Elephant Riches™", "gpas_elphrich_pop", "Slot Machines", "0"],
             ["Wolves! Cash Collect & Link™", "gpas_wolcc_pop", "Slot Machines", "95.57"],
             ["Candy Roll™", "gpas_sweroll_pop", "Slot Machines", "0"],
+        ];
+    }
+
+    private function recentlyAddedGames()
+    {
+        return [
+            ["Epic Fish Adventure", "pop_4cb213b5_qsp", "Slot Machines", "0"],
+            ["Sakura Fortune Epic Bloom", "pop_31a48f83_qsp", "Slot Machines", "0"],
+            ["Age of the Gods: Ruler of the Sky", "gpas_aogrotsk_pop", "POP Slots", "0"],
+            ["Goood Heavens", "gpas_gdhvns_pop", "POP Slots", "0"],
+            ["Age of the Gods: God of Storms", "gpas_aoggstorm_pop", "POP Slots", "0"],
         ];
     }
 }
