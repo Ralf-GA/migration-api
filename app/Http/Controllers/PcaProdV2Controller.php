@@ -88,6 +88,8 @@ class PcaProdV2Controller extends Controller
             ['Live Spin A Win','swl','Game Show','0'],
             ['Mega Fire Blaze Lucky Ball Live','fbbl','Game Show','0'],
             ['Busted Or Bailed','prstl','Game Show','0'],
+            ['Fashion TV Mega Party Live','mjpswl','Game Show','95.56'],
+            ['Sakura Fortune Live','sfl','Game Show','96.57'],
             ['Bet on Poker','bs_pokl','Poker','0'],
             ["Casino Hold'em Live",'chel','Poker','0'],
             ['Live 3 Card Brag','3brgl','Poker','0'],

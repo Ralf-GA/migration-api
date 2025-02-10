@@ -81,7 +81,8 @@ $router->group(['prefix' => 'migrate'], function () use ($router) {
 
     // PCA
     $router->group(['prefix' => 'pca/v2'], function () use ($router) {
-        $router->post('/staging', ['uses' => 'PcaStgV2Controller@migrate']);
+        // $router->post('/staging', ['uses' => 'PcaStgV2Controller@migrate']);
+        $router->post('delete/production', ['uses' => 'PcaProdController@delete']);
         // $router->post('/production', ['uses' => 'PcaProdV2Controller@migrate']);
     });
 });

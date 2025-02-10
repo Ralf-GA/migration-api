@@ -51,6 +51,38 @@ class PcaProdController extends Controller
         dd('Inserted Games!');
     }
 
+    public function delete()
+    {
+        $gameList = $this->gameList1();
+        // $gameList = $this->gameList2();
+        // $gameList = $this->gameList3();
+
+        $gameList = array_merge($this->gameList1(), $this->gameList2(), $this->gameList3());
+
+        foreach ($gameList as $game) {
+            $requestData[] = [
+                'provider_code' => 'PCA',
+                'code' => $game[2]
+            ];
+        }
+
+        dd($requestData);
+
+        // foreach ($requestData as $data) {
+        //     $response = Http::withHeaders([
+        //         'Authorization' => 'Bearer ' . env('DELETE_API_BEARER_TOKEN_PROD'),
+        //         'Content-Type' => 'application/json'
+        //     ])->delete(env('DELETE_GAME_API_PROD'), $data);
+        //     // ])->post('dummyApi.com', $data);
+
+        //     Log::info(json_encode([
+        //         'request' => $data,
+        //         'response' => $response->body()
+        //         // 'response' => 'test logging'
+        //     ]));
+        // }
+    }
+
     private function gameList1()
     {
         return [
