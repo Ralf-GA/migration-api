@@ -73,6 +73,8 @@ class PlaProdController extends Controller
         // $gameList = $this->gameList7();
         // $gameList = $this->recentlyAddedGames();
 
+        // $gameList = array_merge($this->gameList1(), $this->gameList2(), $this->gameList3(), $this->gameList4(), $this->gameList5(), $this->gameList6(), $this->gameList7(), $this->recentlyAddedGames());
+
         foreach ($gameList as $game) {
             $requestData[] = [
                 'provider_code' => 'PLA',
@@ -86,12 +88,13 @@ class PlaProdController extends Controller
         //     $response = Http::withHeaders([
         //         'Authorization' => 'Bearer ' . env('DELETE_API_BEARER_TOKEN_PROD'),
         //         'Content-Type' => 'application/json'
-        //     // ])->post(env('DELETE_GAME_API_PROD'), $data);
-        //     ])->post('dummyApi.com', $data);
+        //     ])->delete(env('DELETE_GAME_API_PROD'), $data);
+        //     // ])->post('dummyApi.com', $data);
 
         //     Log::info(json_encode([
         //         'request' => $data,
         //         'response' => $response->body()
+        //         // 'response' => 'test logging'
         //     ]));
         // }
     }
@@ -455,8 +458,7 @@ class PlaProdController extends Controller
             ["Epic Fish Adventure", "pop_4cb213b5_qsp", "Slot Machines", "0"],
             ["Sakura Fortune Epic Bloom", "pop_31a48f83_qsp", "Slot Machines", "0"],
             ["Age of the Gods: Ruler of the Sky", "gpas_aogrotsk_pop", "POP Slots", "0"],
-            ["Goood Heavens", "gpas_gdhvns_pop", "POP Slots", "0"],
-            ["Age of the Gods: God of Storms", "gpas_aoggstorm_pop", "POP Slots", "0"],
+            ["Goood Heavens", "gpas_gdhvns_pop", "POP Slots", "0"]
         ];
     }
 }

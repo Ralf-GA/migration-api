@@ -75,8 +75,8 @@ $router->group(['prefix' => 'migrate'], function () use ($router) {
     // PLA
     $router->group(['prefix' => 'pla/v2'], function () use ($router) {
         // $router->post('/staging', ['uses' => 'PlaStgV2Controller@migrate']);
-        $router->post('delete/production', ['uses' => 'PlaProdController@delete']);
-        // $router->post('/production', ['uses' => 'PlaProdV2Controller@migrate']);
+        // $router->post('delete/production', ['uses' => 'PlaProdController@delete']);
+        $router->post('/production', ['uses' => 'PlaProdV2Controller@migrate']);
     });
 
     // PCA
