@@ -81,10 +81,16 @@ $router->post(uri: '/delete/production/{providerCode}', action: 'EntrypointContr
 //         $router->post('/production', ['uses' => 'PcaProdController@migrate']);
 //     });
 
+//     // BES
+//     $router->group(['prefix' => 'bes'], function () use ($router) {
+//         $router->post('/staging', ['uses' => 'BesStgController@migrate']);
+//     });
+
 //     // PLA
 //     $router->group(['prefix' => 'pla/v2'], function () use ($router) {
-//         $router->post('/staging', ['uses' => 'PlaStgV2Controller@migrate']);
-//         // $router->post('/production', ['uses' => 'PlaProdController@migrate']);
+//         // $router->post('/staging', ['uses' => 'PlaStgV2Controller@migrate']);
+//         // $router->post('delete/production', ['uses' => 'PlaProdController@delete']);
+//         $router->post('/production', ['uses' => 'PlaProdV2Controller@migrate']);
 //     });
 
 //     // PCA
