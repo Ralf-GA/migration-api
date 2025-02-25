@@ -22,7 +22,7 @@ class SBOController
             type: 'sportsbook',
         );
 
-        $this->logRequestData(requestData: $request);
+        // $this->logRequestData(requestData: $request);
 
         // $this->testLogData(requestData: $request);
 
