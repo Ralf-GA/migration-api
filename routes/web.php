@@ -63,18 +63,31 @@ $router->group(['prefix' => 'migrate'], function () use ($router) {
     // PLA
     $router->group(['prefix' => 'pla'], function () use ($router) {
         $router->post('/staging', ['uses' => 'PlaStgController@migrate']);
-        // $router->post('/production', ['uses' => 'PlaProdController@migrate']);
+        $router->post('/production', ['uses' => 'PlaProdController@migrate']);
     });
 
     // PCA
     $router->group(['prefix' => 'pca'], function () use ($router) {
         $router->post('/staging', ['uses' => 'PcaStgController@migrate']);
-        // $router->post('/production', ['uses' => 'PlaProdController@migrate']);
+        $router->post('/production', ['uses' => 'PcaProdController@migrate']);
     });
 
     // BES
     $router->group(['prefix' => 'bes'], function () use ($router) {
         $router->post('/staging', ['uses' => 'BesStgController@migrate']);
     });
+  
+    // PLA
+    $router->group(['prefix' => 'pla/v2'], function () use ($router) {
+        // $router->post('/staging', ['uses' => 'PlaStgV2Controller@migrate']);
+        // $router->post('delete/production', ['uses' => 'PlaProdController@delete']);
+        $router->post('/production', ['uses' => 'PlaProdV2Controller@migrate']);
+    });
 
+    // PCA
+    $router->group(['prefix' => 'pca/v2'], function () use ($router) {
+        // $router->post('/staging', ['uses' => 'PcaStgV2Controller@migrate']);
+        $router->post('delete/production', ['uses' => 'PcaProdController@delete']);
+        // $router->post('/production', ['uses' => 'PcaProdV2Controller@migrate']);
+    });
 });
