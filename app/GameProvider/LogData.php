@@ -59,4 +59,20 @@ trait LogData
             );
         }
     }
+
+    public function logRequestData(array $requestData): void
+    {
+        $logDirectory = base_path(path: "app/GameProvider/Logs/Test");
+
+        if (File::exists(path: $logDirectory) === false)
+            mkdir(directory: $logDirectory, permissions: 0777, recursive: true);
+
+        $fileName = Carbon::now()->format('Y-m-d_H:i:s');
+        $logFilePath = "{$logDirectory}/{$fileName}.txt";
+
+        File::append(
+            path: $logFilePath,
+            data: json_encode($requestData)
+        );
+    }
 }

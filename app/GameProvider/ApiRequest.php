@@ -12,69 +12,63 @@ trait ApiRequest
         string $environment,
         string $token,
         string $url,
-        array $request,
+        array $data,
         string $provider
     ): void {
-        $response = Http::withHeaders(headers: ['Authorization' => $token])
-            ->post(url: $url, data: $request);
+        foreach ($data as $request) {
+            $response = Http::withHeaders(headers: ['Authorization' => $token])
+                ->post(url: $url, data: $request);
 
-        $this->logData(
-            environment: $environment,
-            fileName: "{$provider}-{$environment}",
-            requestData: [$request],
-            responseData: $response
-        );
+            $this->logData(
+                environment: $environment,
+                fileName: "{$provider}-{$environment}",
+                requestData: [$request],
+                responseData: $response
+            );
+        }
     }
 
     public function uploadToStaging(array $request, string $provider): void
     {
-        foreach ($request as $data) {
-            $this->sendApiRequest(
-                environment: 'staging',
-                token: 'Bearer ' . env('BEARER_TOKEN_STG'),
-                url: env('ADD_GAME_API_STG'),
-                request: $data,
-                provider: $provider
-            );
-        }
+        $this->sendApiRequest(
+            environment: 'staging',
+            token: 'Bearer ' . env('BEARER_TOKEN_STG'),
+            url: env('ADD_GAME_API_STG'),
+            data: $request,
+            provider: $provider
+        );
     }
 
     public function uploadToProduction(array $request, string $provider): void
     {
-        foreach ($request as $data) {
-            $this->sendApiRequest(
-                environment: 'production',
-                token: 'Bearer ' . env('BEARER_TOKEN_PROD'),
-                url: env('ADD_GAME_API_PROD'),
-                request: $data,
-                provider: $provider
-            );
-        }
+        $this->sendApiRequest(
+            environment: 'production',
+            token: 'Bearer ' . env('BEARER_TOKEN_PROD'),
+            url: env('ADD_GAME_API_PROD'),
+            data: $request,
+            provider: $provider
+        );
     }
 
-    public function deleteInStaging(array $request, string $provider)
+    public function deleteInStaging(array $request, string $provider): void
     {
-        foreach ($request as $data) {
-            $this->sendApiRequest(
-                environment: 'staging',
-                token: 'Bearer ' . env('DELETE_API_BEARER_TOKEN_STG'),
-                url: env('DELETE_GAME_API_STG'),
-                request: $data,
-                provider: $provider
-            );
-        }
+        $this->sendApiRequest(
+            environment: 'staging',
+            token: 'Bearer ' . env('DELETE_API_BEARER_TOKEN_STG'),
+            url: env('DELETE_GAME_API_STG'),
+            data: $request,
+            provider: $provider
+        );
     }
 
-    public function deleteInProduction(array $request, string $provider)
+    public function deleteInProduction(array $request, string $provider): void
     {
-        foreach ($request as $data) {
-            $this->sendApiRequest(
-                environment: 'production',
-                token: 'Bearer ' . env('DELETE_API_BEARER_TOKEN_PROD'),
-                url: env('DELETE_GAME_API_PROD'),
-                request: $data,
-                provider: $provider
-            );
-        }
+        $this->sendApiRequest(
+            environment: 'production',
+            token: 'Bearer ' . env('DELETE_API_BEARER_TOKEN_PROD'),
+            url: env('DELETE_GAME_API_PROD'),
+            data: $request,
+            provider: $provider
+        );
     }
 }
