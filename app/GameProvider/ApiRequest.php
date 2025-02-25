@@ -51,4 +51,30 @@ trait ApiRequest
             );
         }
     }
+
+    public function deleteInStaging(array $request, string $provider)
+    {
+        foreach ($request as $data) {
+            $this->sendApiRequest(
+                environment: 'staging',
+                token: 'Bearer ' . env('DELETE_API_BEARER_TOKEN_STG'),
+                url: env('DELETE_GAME_API_STG'),
+                request: $data,
+                provider: $provider
+            );
+        }
+    }
+
+    public function deleteInProduction(array $request, string $provider)
+    {
+        foreach ($request as $data) {
+            $this->sendApiRequest(
+                environment: 'production',
+                token: 'Bearer ' . env('DELETE_API_BEARER_TOKEN_PROD'),
+                url: env('DELETE_GAME_API_PROD'),
+                request: $data,
+                provider: $provider
+            );
+        }
+    }
 }

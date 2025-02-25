@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 trait RequestBuilder
 {
-    public function buildRequest(
+    public function buildApiRequest(
         string $providerCode,
         string $providerName,
         int $position,
@@ -39,6 +39,24 @@ trait RequestBuilder
             ];
 
             $position++;
+        }
+
+        return $requestData;
+    }
+
+    public function buildDeleteRequest(
+        string $providerCode,
+        array $data
+    ): array {
+        $requestData = [];
+
+        foreach ($data as $game) {
+            [$gameCode] = $game;
+
+            $requestData[] = [
+                'provider_code' => $providerCode,
+                'code' => $gameCode
+            ];
         }
 
         return $requestData;

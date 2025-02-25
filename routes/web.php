@@ -17,6 +17,16 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+//  sudo chmod -R 777 app/GameProvider/
+
+// Staging
+$router->post(uri: '/migrate/staging/{providerCode}', action: 'EntrypointController@staging');
+$router->post(uri: '/delete/staging/{providerCode}', action: 'EntrypointController@stagingDelete');
+
+// Production
+$router->post(uri: '/migrate/production/{providerCode}', action: 'EntrypointController@production');
+$router->post(uri: '/delete/production/{providerCode}', action: 'EntrypointController@productionDelete');
+
 // $router->group(['prefix' => 'migrate'], function () use ($router) {
 //     $router->group(['prefix' => 'test'], function () use ($router) {
 //         $router->post('/gamelist', ['uses' => 'testController@testing']);
@@ -83,10 +93,3 @@ $router->get('/', function () use ($router) {
 //         // $router->post('/production', ['uses' => 'PlaProdController@migrate']);
 //     });
 // });
-
-
-//  sudo chmod -R 777 app/GameProvider/
-// Staging
-$router->post(uri: '/migrate/staging/{providerCode}', action: 'EntrypointController@staging');
-// Production
-$router->post(uri: '/migrate/production/{providerCode}', action: 'EntrypointController@production');

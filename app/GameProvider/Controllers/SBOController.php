@@ -10,11 +10,11 @@ class SBOController
 {
     use RequestBuilder, ApiRequest, LogData;
 
-    public function staging()
+    public function staging(): void
     {
-        $data = $this->gameSlotData();
+        $data = $this->gameData();
 
-        $request = $this->buildRequest(
+        $request = $this->buildApiRequest(
             providerCode: 'SBO',
             providerName: 'SBO Sportsbook',
             position: 1,
@@ -22,26 +22,30 @@ class SBOController
             type: 'sportsbook',
         );
 
-        $this->testLogData(requestData: $request);
-        // dd($request);
+        // $this->testLogData(requestData: $request);
 
         // $this->uploadToStaging(request: $request, provider: 'SBO');
 
         // $this->uploadToProduction(request: $request, provider: 'SBO');
-
-        dd('done');
     }
 
-    private function gameSlotData(): array
+    public function stagingDelete(): void
     {
-        return [
-            ['testGameCode', 'testGameName', '89'],
-            ['testGameCode2', 'testGameName2', '90'],
-            ['testGameCode3', 'testGameName3', '75']
-        ];
+        $data = $this->gameData();
+
+        $request = $this->buildDeleteRequest(
+            providerCode: 'SBO',
+            data: $data
+        );
+
+        // $this->testLogData(requestData: $request);
+
+        // $this->deleteInStaging(request: $request, provider: 'SBO');
+
+        // $this->deleteInProduction(request: $request, provider: 'SBO');
     }
 
-    private function gameArcadeData(): array
+    private function gameData(): array
     {
         return [
             ['testGameCode', 'testGameName', '89'],
