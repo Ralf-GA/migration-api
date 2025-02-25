@@ -10,8 +10,10 @@ class EntrypointController
         'sab' => 'SABController',
         'jdb' => 'JDBController',
         'hcg' => 'HCGController',
+        'bes' => 'BESController',
         'pla' => 'PLAController',
         'pca' => 'PCAController',
+        'ygr' => 'YGRController',
     ];
 
     private function handleRequest(string $providerCode, string $environment): void
