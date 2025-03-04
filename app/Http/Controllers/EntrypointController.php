@@ -16,7 +16,7 @@ class EntrypointController
         'ygr' => 'YGRController',
     ];
 
-    private function handleRequest(string $providerCode, string $environment): void
+    private function requestHandler(string $providerCode, string $environment): void
     {
         if (isset($this->providers[$providerCode]) === false)
             dd("ProviderCode Not Set. Check Endpoint");
@@ -36,21 +36,21 @@ class EntrypointController
 
     public function staging(string $providerCode)
     {
-        return $this->handleRequest(providerCode: $providerCode, environment: 'staging');
+        return $this->requestHandler(providerCode: $providerCode, environment: 'staging');
     }
 
     public function production(string $providerCode)
     {
-        return $this->handleRequest(providerCode: $providerCode, environment: 'production');
+        return $this->requestHandler(providerCode: $providerCode, environment: 'production');
     }
 
     public function stagingDelete(string $providerCode)
     {
-        return $this->handleRequest(providerCode: $providerCode, environment: 'stagingDelete');
+        return $this->requestHandler(providerCode: $providerCode, environment: 'stagingDelete');
     }
 
     public function productionDelete(string $providerCode)
     {
-        return $this->handleRequest(providerCode: $providerCode, environment: 'productionDelete');
+        return $this->requestHandler(providerCode: $providerCode, environment: 'productionDelete');
     }
 }

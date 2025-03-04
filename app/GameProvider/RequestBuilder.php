@@ -9,9 +9,9 @@ trait RequestBuilder
     public function buildApiRequest(
         string $providerCode,
         string $providerName,
-        int $position,
+        int $startPosition,
         array $data,
-        string $type
+        string $gameType
     ): array {
         /**
          * Setup
@@ -31,23 +31,21 @@ trait RequestBuilder
                 'providerName' => $providerName,
                 'gameCode' => $gameCode,
                 'gameName' => $gameName,
-                'position' => $position,
-                'type' => $type,
+                'position' => $startPosition,
+                'type' => $gameType,
                 'rtp' => $rtp,
                 'imageUrl' => '-',
                 'imageAlt' => $gameName,
             ];
 
-            $position++;
+            $startPosition++;
         }
 
         return $requestData;
     }
 
-    public function buildDeleteRequest(
-        string $providerCode,
-        array $data
-    ): array {
+    public function buildDeleteRequest(string $providerCode, array $data): array
+    {
         $requestData = [];
 
         foreach ($data as $game) {

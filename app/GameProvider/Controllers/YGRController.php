@@ -12,42 +12,42 @@ class YGRController
 
     public function staging(): void
     {
-        $data = $this->slotGames();
+        $data = $this->stagingSlotGames();
 
         $request = $this->buildApiRequest(
             providerCode: 'YGR',
             providerName: 'YGR',
-            position: 1,
+            startPosition: 1,
             data: $data,
-            type: 'slot',
+            gameType: 'slot',
         );
 
         // $this->testLogData(requestData: $request);
 
         // $this->uploadToStaging(request: $request, provider: 'YGR');
 
-        $data = $this->fishGames();
+        $data = $this->stagingFishGames();
 
         $request = $this->buildApiRequest(
             providerCode: 'YGR',
             providerName: 'YGR',
-            position: 72,
+            startPosition: 72,
             data: $data,
-            type: 'arcade',
+            gameType: 'arcade',
         );
 
         // $this->testLogData(requestData: $request);
 
         // $this->uploadToStaging(request: $request, provider: 'YGR');
 
-        $data = $this->arcadeGames();
+        $data = $this->stagingArcadeGames();
 
         $request = $this->buildApiRequest(
             providerCode: 'YGR',
             providerName: 'YGR',
-            position: 81,
+            startPosition: 81,
             data: $data,
-            type: 'arcade',
+            gameType: 'arcade',
         );
 
         // $this->testLogData(requestData: $request);
@@ -55,7 +55,7 @@ class YGRController
         // $this->uploadToStaging(request: $request, provider: 'YGR');
     }
 
-    private function slotGames(): array
+    private function stagingSlotGames(): array
     {
         return [
             ['097', "Maya Golden City6", '97'],
@@ -132,7 +132,7 @@ class YGRController
         ];
     }
 
-    private function fishGames(): array
+    private function stagingFishGames(): array
     {
         return [
             ['070', "Make a Killing Fishing", '97'],
@@ -147,7 +147,7 @@ class YGRController
         ];
     }
 
-    private function arcadeGames(): array
+    private function stagingArcadeGames(): array
     {
         return [
             ['047', "Pinball Fun", '97'],

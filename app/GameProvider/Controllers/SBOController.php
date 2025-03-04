@@ -12,14 +12,14 @@ class SBOController
 
     public function staging(): void
     {
-        $data = $this->gameData();
+        $data = $this->stagingGameList();
 
         $request = $this->buildApiRequest(
             providerCode: 'SBO',
             providerName: 'SBO Sportsbook',
-            position: 1,
+            startPosition: 1,
             data: $data,
-            type: 'sportsbook',
+            gameType: 'sportsbook',
         );
 
         // $this->logRequestData(requestData: $request);
@@ -33,7 +33,7 @@ class SBOController
 
     public function stagingDelete(): void
     {
-        $data = $this->gameData();
+        $data = $this->stagingGameList();
 
         $request = $this->buildDeleteRequest(
             providerCode: 'SBO',
@@ -47,7 +47,7 @@ class SBOController
         // $this->deleteInProduction(request: $request, provider: 'SBO');
     }
 
-    private function gameData(): array
+    private function stagingGameList(): array
     {
         return [
             ['testGameCode', 'testGameName', '89'],
