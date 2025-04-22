@@ -57,6 +57,53 @@ class YGRController
 
     public function production(): void
     {
+        $data = $this->productionSlotGames();
+
+        $request = $this->buildApiRequest(
+            providerCode: 'YGR',
+            providerName: 'YGR',
+            startPosition: 1,
+            data: $data,
+            gameType: 'slot',
+        );
+
+        // $this->testLogData(requestData: $request);
+
+        // $this->uploadToProduction(request: $request, provider: 'YGR');
+
+        // dd($request);
+
+        $data = $this->productionFishGames();
+
+        $request = $this->buildApiRequest(
+            providerCode: 'YGR',
+            providerName: 'YGR',
+            startPosition: 75,
+            data: $data,
+            gameType: 'arcade',
+        );
+
+        // $this->testLogData(requestData: $request);
+
+        // $this->uploadToProduction(request: $request, provider: 'YGR');
+
+        // dd($request);
+
+        $data = $this->productionArcadeGames();
+
+        $request = $this->buildApiRequest(
+            providerCode: 'YGR',
+            providerName: 'YGR',
+            startPosition: 84,
+            data: $data,
+            gameType: 'arcade',
+        );
+
+        // $this->testLogData(requestData: $request);
+
+        // $this->uploadToProduction(request: $request, provider: 'YGR');
+
+        // dd($request);
     }
 
     private function stagingSlotGames(): array
