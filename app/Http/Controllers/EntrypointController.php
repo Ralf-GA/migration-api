@@ -15,6 +15,7 @@ class EntrypointController
         'pca' => 'PCAController',
         'ygr' => 'YGRController',
         'hg5' => 'HG5Controller',
+        'aix' => 'AIXController',
     ];
 
     private function requestHandler(string $providerCode, string $environment): void
